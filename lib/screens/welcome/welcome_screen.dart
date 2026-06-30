@@ -11,7 +11,7 @@ body: SafeArea(
 child: SingleChildScrollView(
 child: Column(
 children: [
-const SizedBox(height: 40),
+const SizedBox(height: 0),
 
 // =========================
 // TOP SECTION (UNCHANGED)
@@ -108,7 +108,7 @@ child: Container(
 width: double.infinity,
 padding: const EdgeInsets.fromLTRB(
 24,
-28,
+12,
 24,
 30,
 ),
