@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rojgari_frontend_one/core/constants/colors.dart';
 
 enum FieldType {
@@ -13,6 +14,7 @@ class CustomTextField extends StatefulWidget {
   final String hintText;
   final FieldType fieldType;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   const CustomTextField({
     super.key,
@@ -20,6 +22,7 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     this.fieldType = FieldType.text,
     this.controller,
+    this.validator,
   });
 
   @override
@@ -128,8 +131,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
               ],
 
               Expanded(
-                child: TextField(
+                child: TextFormField(
                   controller: widget.controller,
+                  validator: widget.validator,
                   keyboardType: keyboardType,
                   obscureText: isPassword ? _obscure : false,
                   decoration: InputDecoration(
